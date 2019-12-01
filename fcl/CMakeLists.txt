@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5.0)
 
-add_compile_options(-std=c++14 -w)
+set(FCL_CXX_FLAGS "-w -std=c++14")
+set(FCL_C_FLAGS "-w")
 
 include(ExternalProject)
 
@@ -12,6 +13,8 @@ ExternalProject_Add(fcl
   CMAKE_CACHE_ARGS
           -DCMAKE_INSTALL_PREFIX:STRING=${CMAKE_INSTALL_PREFIX}
           -DCMAKE_BUILD_TYPE:STRING=Release
+          -DCMAKE_CXX_FLAGS:STRING=${FCL_CXX_FLAGS}
+          -DCMAKE_C_FLAGS:STRING=${FCL_C_FLAGS}
           -DFCL_BUILD_TESTS:BOOL=OFF
 )
 

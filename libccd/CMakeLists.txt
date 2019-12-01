@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.5.0)
 
-add_compile_options(-std=c++14 -w)
+set(LIBCCD_CXX_FLAGS "-w -std=c++14")
+set(LIBCCD_C_FLAGS "-w")
 
 include(ExternalProject)
+
 ExternalProject_Add(libccd
   GIT_REPOSITORY    https://github.com/danfis/libccd.git
   GIT_TAG           master
@@ -10,6 +12,8 @@ ExternalProject_Add(libccd
   BINARY_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/libccd-build
   CMAKE_CACHE_ARGS
           -DCMAKE_INSTALL_PREFIX:STRING=${CMAKE_INSTALL_PREFIX}
+          -DCMAKE_CXX_FLAGS:STRING=${LIBCCD_CXX_FLAGS}
+          -DCMAKE_C_FLAGS:STRING=${LIBCCD_C_FLAGS}
           -DCMAKE_BUILD_TYPE:STRING=Release
           -DENABLE_DOUBLE_PRECISION:BOOL=ON
 )
