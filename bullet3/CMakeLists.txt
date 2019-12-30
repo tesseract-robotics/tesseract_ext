@@ -19,6 +19,7 @@ ExternalProject_Add(Bullet
           -DBUILD_SHARED_LIBS:BOOL=ON
           -DBULLET2_MULTITHREADING:BOOL=ON
           -DUSE_MSVC_RUNTIME_LIBRARY_DLL:BOOL=ON
+          -DINSTALL_LIBS:BOOL=ON
 )
 
 install(FILES package.xml DESTINATION share/bullet3)
