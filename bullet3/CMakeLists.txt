@@ -2,10 +2,10 @@ cmake_minimum_required(VERSION 3.5.0)
 
 include(ExternalProject)
 
-set(BULLET_CXX_FLAGS "-w -std=c++14")
-set(BULLET_C_FLAGS "-w")
-
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  set(BULLET_CXX_FLAGS "-w -std=c++14")
+  set(BULLET_C_FLAGS "-w")
+
   ExternalProject_Add(Bullet
     GIT_REPOSITORY    https://github.com/bulletphysics/bullet3.git
     GIT_TAG           master
@@ -29,8 +29,6 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     CMAKE_CACHE_ARGS
             -DCMAKE_INSTALL_PREFIX:STRING=${CMAKE_INSTALL_PREFIX}
             -DCMAKE_BUILD_TYPE:STRING=Release
-            -DCMAKE_CXX_FLAGS:STRING=${BULLET_CXX_FLAGS}
-            -DCMAKE_C_FLAGS:STRING=${BULLET_C_FLAGS}
             -DBUILD_UNIT_TESTS:BOOL=OFF
             -DBULLET2_MULTITHREADING:BOOL=ON
             -DUSE_MSVC_RUNTIME_LIBRARY_DLL:BOOL=ON
