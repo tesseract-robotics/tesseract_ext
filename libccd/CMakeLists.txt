@@ -8,6 +8,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   ExternalProject_Add(libccd
     GIT_REPOSITORY    https://github.com/danfis/libccd.git
     GIT_TAG           master
+    GIT_SHALLOW       ON
     SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/libccd-src
     BINARY_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/libccd-build
     CMAKE_CACHE_ARGS
@@ -21,6 +22,7 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   ExternalProject_Add(libccd
     GIT_REPOSITORY    https://github.com/danfis/libccd.git
     GIT_TAG           master
+    GIT_SHALLOW       ON
     SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/libccd-src
     BINARY_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/libccd-build
     CMAKE_CACHE_ARGS
