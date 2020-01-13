@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5.0)
-project(eigen3)
+project(eigen)
 
 find_package(Eigen3 QUIET)
-if ( NOT ${Eigen3_FOUND} OR INSTALL_EIGEN)
+if (NOT Eigen3_FOUND OR INSTALL_EIGEN)
   if (NOT INSTALL_EIGEN_TAG)
     set(INSTALL_EIGEN_TAG master)
   endif()
