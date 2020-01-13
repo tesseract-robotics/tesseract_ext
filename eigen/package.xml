@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>eigen3</name>
+  <name>eigen</name>
   <version>0.1.0</version>
   <description>Eigen3 Package</description>
   <maintainer email="levi.armstrong@swri.org">Levi Armstrong</maintainer>
