@@ -59,6 +59,8 @@ install:
         rosdep install --from-paths src --ignore-src -r -y
         /c/opt/vcpkg/vcpkg.exe install jsoncpp:x64-windows
         /c/opt/vcpkg/vcpkg.exe install eigen3:x64-windows
+        /c/opt/vcpkg/vcpkg.exe install autotools:x64-windows
+        /c/opt/vcpkg/vcpkg.exe install automake:x64-windows
         wstool init src
         wstool update -t src
     fi
