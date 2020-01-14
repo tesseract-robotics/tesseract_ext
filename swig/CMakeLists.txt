@@ -36,6 +36,11 @@ if(NOT SWIG_FOUND OR SWIG_VERSION VERSION_LESS "4.0.0")
       COMMAND           mklink ${CMAKE_INSTALL_PREFIX}/bin/ccache-swig ${CMAKE_INSTALL_PREFIX}/bin/ccache-swig4.0
     )
   endif()
+
+  install(FILES package.xml DESTINATION share/swig)
+else()
+  install(FILES package.xml DESTINATION share/dummy RENAME swig.xml)
 endif()
 
-install(FILES package.xml DESTINATION share/swig)
+
+

@@ -39,6 +39,10 @@ if ( NOT GTest_FOUND )
               -DBUILD_SHARED_LIBS:BOOL=ON
     )
   endif()
+
+  install(FILES package.xml DESTINATION share/gtest)
+else()
+  install(FILES package.xml DESTINATION share/dummy RENAME gtest.xml)
 endif()
 
-install(FILES package.xml DESTINATION share/gtest)
+

@@ -20,6 +20,9 @@ if (NOT Eigen3_FOUND OR INSTALL_EIGEN)
             -DCMAKE_BUILD_TYPE:STRING=Release
             -DBUILD_TESTING=OFF
   )
+
+  install(FILES package.xml DESTINATION share/Eigen3)
+else()
+  install(FILES package.xml DESTINATION share/dummy RENAME eigen3.xml)
 endif()
 
-install(FILES package.xml DESTINATION share/Eigen3)

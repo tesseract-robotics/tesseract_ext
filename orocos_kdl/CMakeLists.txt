@@ -20,6 +20,9 @@ if (NOT orocos_kdl_FOUND OR INSTALL_OROCOS_KDL)
             -DCMAKE_INSTALL_PREFIX:STRING=${CMAKE_INSTALL_PREFIX}
             -DCMAKE_BUILD_TYPE:STRING=Release
   )
+
+  install(FILES package.xml DESTINATION share/orocos_kdl)
+else()
+  install(FILES package.xml DESTINATION share/dummy RENAME orocos_kdl.xml)
 endif()
 
-install(FILES package.xml DESTINATION share/orocos_kdl)
