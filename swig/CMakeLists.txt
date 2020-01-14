@@ -14,9 +14,12 @@ if(NOT SWIG_FOUND OR SWIG_VERSION VERSION_LESS "4.0.0")
       GIT_SHALLOW       ON
       SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/swig-src
       BUILD_IN_SOURCE   true
-      CONFIGURE_COMMAND bash autogen.sh && bash configure --prefix=${CMAKE_INSTALL_PREFIX}
+      CONFIGURE_COMMAND bash autogen.sh
+      COMMAND           bash configure --prefix=${CMAKE_INSTALL_PREFIX}
       BUILD_COMMAND     make -j8
       INSTALL_COMMAND   make install
+      COMMAND           ln -f -s ${CMAKE_INSTALL_PREFIX}/bin/swig ${CMAKE_INSTALL_PREFIX}/bin/swig4.0
+      COMMAND           ln -f -s ${CMAKE_INSTALL_PREFIX}/bin/ccache-swig ${CMAKE_INSTALL_PREFIX}/bin/ccache-swig4.0
     )
   elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     ExternalProject_Add(swig
@@ -25,11 +28,14 @@ if(NOT SWIG_FOUND OR SWIG_VERSION VERSION_LESS "4.0.0")
       GIT_SHALLOW       ON
       SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/swig-src
       BUILD_IN_SOURCE   true
-      CONFIGURE_COMMAND bash autogen.sh && bash configure --prefix=${CMAKE_INSTALL_PREFIX}
+      CONFIGURE_COMMAND bash autogen.sh
+      COMMAND           bash configure --prefix=${CMAKE_INSTALL_PREFIX}
       BUILD_COMMAND     make -j8
       INSTALL_COMMAND   make install
+      COMMAND           mklink ${CMAKE_INSTALL_PREFIX}/bin/swig ${CMAKE_INSTALL_PREFIX}/bin/swig4.0
+      COMMAND           mklink ${CMAKE_INSTALL_PREFIX}/bin/ccache-swig ${CMAKE_INSTALL_PREFIX}/bin/ccache-swig4.0
     )
   endif()
 endif()
 
-install(FILES package.xml DESTINATION share/fcl)
+install(FILES package.xml DESTINATION share/swig)
