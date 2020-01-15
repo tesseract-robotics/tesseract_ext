@@ -23,11 +23,20 @@ env:
 jobs:
   include:
     - os: linux
+      dist: xenial
+      language: cpp
+      env:
+      - ROS_DISTRO="kinetic"
+      - BADGE=xenial
+      cache:
+        directories:
+          - $HOME/.ccache
+    - os: linux
       dist: bionic
       language: cpp
       env:
       - ROS_DISTRO="melodic"
-      - BADGE=xenial
+      - BADGE=bionic
       cache:
         directories:
           - $HOME/.ccache
