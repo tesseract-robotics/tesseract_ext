@@ -9,7 +9,6 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   ExternalProject_Add(Bullet
     GIT_REPOSITORY    https://github.com/bulletphysics/bullet3.git
     GIT_TAG           master
-    GIT_SHALLOW       ON
     SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/bullet3-src
     BINARY_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/bullet3-build
     CMAKE_CACHE_ARGS
@@ -25,7 +24,6 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   ExternalProject_Add(Bullet
     GIT_REPOSITORY    https://github.com/bulletphysics/bullet3.git
     GIT_TAG           master
-    GIT_SHALLOW       ON
     SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/bullet3-src
     BINARY_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/bullet3-build
     CMAKE_CACHE_ARGS

@@ -12,7 +12,6 @@ if (NOT Eigen3_FOUND OR INSTALL_EIGEN)
   ExternalProject_Add(Eigen3
     GIT_REPOSITORY    https://gitlab.com/libeigen/eigen.git
     GIT_TAG           ${INSTALL_EIGEN_TAG}
-    GIT_SHALLOW       ON
     SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/Eigen3-src
     BINARY_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/Eigen3-build
     CMAKE_CACHE_ARGS

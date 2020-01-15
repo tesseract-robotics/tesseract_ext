@@ -9,7 +9,6 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   ExternalProject_Add(fcl
     GIT_REPOSITORY    https://github.com/flexible-collision-library/fcl.git
     GIT_TAG           master
-    GIT_SHALLOW       ON
     SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/fcl-src
     BINARY_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/fcl-build
     CMAKE_CACHE_ARGS
@@ -24,7 +23,6 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   ExternalProject_Add(fcl
     GIT_REPOSITORY    https://github.com/flexible-collision-library/fcl.git
     GIT_TAG           master
-    GIT_SHALLOW       ON
     SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/fcl-src
     BINARY_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/fcl-build
     CMAKE_CACHE_ARGS

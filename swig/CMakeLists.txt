@@ -11,7 +11,6 @@ if(NOT SWIG_FOUND OR SWIG_VERSION VERSION_LESS "4.0.0")
     ExternalProject_Add(swig
       GIT_REPOSITORY    https://github.com/swig/swig.git
       GIT_TAG           rel-4.0.1
-      GIT_SHALLOW       ON
       SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/swig-src
       BUILD_IN_SOURCE   true
       CONFIGURE_COMMAND bash autogen.sh
@@ -25,7 +24,6 @@ if(NOT SWIG_FOUND OR SWIG_VERSION VERSION_LESS "4.0.0")
     ExternalProject_Add(swig
       GIT_REPOSITORY    https://github.com/swig/swig.git
       GIT_TAG           rel-4.0.1
-      GIT_SHALLOW       ON
       SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/swig-src
       BUILD_IN_SOURCE   true
       CONFIGURE_COMMAND bash autogen.sh
