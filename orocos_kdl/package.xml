@@ -6,6 +6,8 @@
   <maintainer email="levi.armstrong@swri.org">Levi Armstrong</maintainer>
   <license>Unknown</license>
 
+  <depend>eigen</depend>
+
   <export>
     <build_type>cmake</build_type>
   </export>

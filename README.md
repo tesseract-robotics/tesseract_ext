@@ -5,6 +5,8 @@ This contains external dependencies for Tesseract.
 * Bullet3
 * FCL
 * GTest
+* libcdd
+* SWIG
 
 ## Optional Dependencies
 These are optional and not required for typical operation
