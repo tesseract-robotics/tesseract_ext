@@ -6,9 +6,8 @@
   <maintainer email="levi.armstrong@swri.org">Levi Armstrong</maintainer>
   <license>Unknown</license>
 
-  <depend>autotools-dev</depend>
   <depend>automake</depend>
-  <depend>libpcre3-dev</depend>
+  <depend>pcre</depend>
   <depend>bison</depend>
 
   <export>
