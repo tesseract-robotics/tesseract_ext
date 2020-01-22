@@ -8,6 +8,7 @@
 
   <depend>libccd</depend>
   <depend>eigen</depend>
+  <depend>octomap</depend>
 
   <export>
     <build_type>cmake</build_type>
