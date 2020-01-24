@@ -7,8 +7,8 @@
   <license>Unknown</license>
 
   <build_depend>automake</build_depend>
-  <build_depend>pcre</build_depend>
   <build_depend>bison</build_depend>
+  <depend>pcre</depend>
 
   <export>
     <build_type>cmake</build_type>
