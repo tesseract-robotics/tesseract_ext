@@ -5,7 +5,7 @@ if ( NOT GTest_FOUND )
 
   include(ExternalProject)
 
-  if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     set(GTEST_CXX_FLAGS "-w -std=c++14")
     set(GTEST_C_FLAGS "-w")
 

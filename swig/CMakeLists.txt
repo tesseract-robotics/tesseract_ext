@@ -5,7 +5,7 @@ include(ExternalProject)
 find_package(SWIG QUIET)
 message("Swig version found: " ${SWIG_VERSION})
 if(NOT SWIG_FOUND OR SWIG_VERSION VERSION_LESS "4.0.0")
-  if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     set(FCL_C_FLAGS "-w")
 
     ExternalProject_Add(swig

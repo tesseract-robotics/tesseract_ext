@@ -18,7 +18,7 @@ env:
     - CCACHE_DIR=$HOME/.ccache
     - ROS_REPO=ros
     - NOT_TEST_INSTALL=true
-    - ADDITIONAL_DEBS="autotools-dev automake libpcre3-dev bison"
+    - ADDITIONAL_DEBS="autotools-dev automake libpcre3-dev bison clang"
 
 jobs:
   include:
@@ -40,12 +40,22 @@ jobs:
       cache:
         directories:
           - $HOME/.ccache
+    - os: linux
+      dist: bionic
+      language: cpp
+      env:
+      - ROS_DISTRO="melodic"
+      - BADGE=bionic-clang-compiler
+      - CMAKE_ARGS="-DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++"
+      cache:
+        directories:
+          - $HOME/.ccache    
     - os: windows
       language: cpp
       env: BADGE=windows
 
 install:
-  - if [ "$TRAVIS_OS_NAME" != "windows" ]; then git clone --quiet --depth=1 https://github.com/ros-industrial/industrial_ci.git .ci_config; fi
+  - if [ "$TRAVIS_OS_NAME" != "windows" ]; then git clone -b legacy --quiet --depth=1 https://github.com/ros-industrial/industrial_ci.git .ci_config; fi
   - |
     if [ "$TRAVIS_OS_NAME" = "windows" ]; then
         unset CXX CXX_FOR_BUILD CC CC_FOR_BUILD
