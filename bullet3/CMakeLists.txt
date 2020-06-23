@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5.0)
 
 include(ExternalProject)
 
-if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   set(BULLET_CXX_FLAGS "-w -std=c++14")
   set(BULLET_C_FLAGS "-w")
 
