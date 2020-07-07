@@ -1,4 +1,6 @@
 # tesseract_ext
+[![Build Status](https://travis-ci.com/ros-industrial-consortium/tesseract_ext.svg?branch=master)](https://travis-ci.com/ros-industrial-consortium/tesseract_ext)
+
 This contains external dependencies for Tesseract.
 
 ## Required Dependencies
