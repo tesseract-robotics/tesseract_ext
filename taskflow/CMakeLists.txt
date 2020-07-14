@@ -1,0 +1,36 @@
+cmake_minimum_required(VERSION 3.5.0)
+project(taskflow)
+
+find_package(Taskflow QUIET)
+if (NOT Taskflow_FOUND OR INSTALL_TASKFLOW)
+    # Taskflow requires 3.9
+    if(${CMAKE_VERSION} VERSION_GREATER "3.8.99")
+        # Taskflow tag can be overwritten using INSTALL_TASKFLOW_TAG
+        if (NOT INSTALL_TASKFLOW_TAG)
+            set(INSTALL_TASKFLOW_TAG master)
+        endif()
+
+        include(ExternalProject)
+
+        ExternalProject_Add(Taskflow
+            GIT_REPOSITORY    https://github.com/taskflow/taskflow.git
+            GIT_TAG           ${INSTALL_TASKFLOW_TAG}
+            SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/Taskflow-src
+            BINARY_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/Taskflow-build
+            CMAKE_CACHE_ARGS
+            -DCMAKE_INSTALL_PREFIX:STRING=${CMAKE_INSTALL_PREFIX}
+            -DCMAKE_BUILD_TYPE:STRING=Release
+            -DBUILD_TESTING=OFF
+            )
+
+        install(FILES package.xml DESTINATION share/Taskflow)
+    else()
+        message(WARNING "Taskflow not found and could not be installed due to CMake version < 3.9.0")
+        install(FILES package.xml DESTINATION share/dummy RENAME taskflow.xml)
+    endif()
+else()
+    install(FILES package.xml DESTINATION share/dummy RENAME taskflow.xml)
+endif()
+
+
+
