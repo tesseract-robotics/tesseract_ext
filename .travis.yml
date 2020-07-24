@@ -26,6 +26,7 @@ jobs:
       dist: xenial
       language: cpp
       env:
+      - BEFORE_SCRIPT="git config --global user.email tesseract_ext@ros-industrial.com && git config --global user.name ROS Industrial"
       - ROS_DISTRO="kinetic"
       - BADGE=xenial
       cache:
@@ -35,6 +36,7 @@ jobs:
       dist: bionic
       language: cpp
       env:
+      - BEFORE_SCRIPT="git config --global user.email tesseract_ext@ros-industrial.com && git config --global user.name ROS Industrial"
       - ROS_DISTRO="melodic"
       - BADGE=bionic
       cache:
@@ -44,6 +46,7 @@ jobs:
       dist: bionic
       language: cpp
       env:
+      - BEFORE_SCRIPT="git config --global user.email tesseract_ext@ros-industrial.com && git config --global user.name ROS Industrial"
       - ROS_DISTRO="melodic"
       - BADGE=bionic-clang-compiler
       - CMAKE_ARGS="-DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++"
