@@ -20,7 +20,10 @@ if (NOT Taskflow_FOUND OR INSTALL_TASKFLOW)
             CMAKE_CACHE_ARGS
             -DCMAKE_INSTALL_PREFIX:STRING=${CMAKE_INSTALL_PREFIX}
             -DCMAKE_BUILD_TYPE:STRING=Release
-            -DBUILD_TESTING=OFF
+            -DTF_BUILD_BENCHMARKS:BOOL=OFF
+            -DTF_BUILD_CUDA:BOOL=OFF
+            -DTF_BUILD_TESTS:Bool=OFF
+            -DTF_BUILD_EXAMPLES:Bool=OFF
             )
 
         install(FILES package.xml DESTINATION share/Taskflow)
