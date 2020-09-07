@@ -7,7 +7,7 @@ if (NOT Taskflow_FOUND OR INSTALL_TASKFLOW)
     if(${CMAKE_VERSION} VERSION_GREATER "3.8.99")
         # Taskflow tag can be overwritten using INSTALL_TASKFLOW_TAG
         if (NOT INSTALL_TASKFLOW_TAG)
-            set(INSTALL_TASKFLOW_TAG master)
+            set(INSTALL_TASKFLOW_TAG v2.6.0)
         endif()
 
         include(ExternalProject)
