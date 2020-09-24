@@ -2,14 +2,19 @@ cmake_minimum_required(VERSION 3.5.0)
 
 include(ExternalProject)
 
+if (NOT UPDATE_DISCONNECTED)
+  set(UPDATE_DISCONNECTED ON)
+endif()
+
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   set(LIBCCD_CXX_FLAGS "-w -std=c++14")
   set(LIBCCD_C_FLAGS "-w")
   ExternalProject_Add(libccd
-    GIT_REPOSITORY    https://github.com/danfis/libccd.git
-    GIT_TAG           master
-    SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/libccd-src
-    BINARY_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/libccd-build
+    GIT_REPOSITORY        https://github.com/danfis/libccd.git
+    GIT_TAG               master
+    SOURCE_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/libccd-src
+    BINARY_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/libccd-build
+    UPDATE_DISCONNECTED   ${UPDATE_DISCONNECTED}
     CMAKE_CACHE_ARGS
             -DCMAKE_INSTALL_PREFIX:STRING=${CMAKE_INSTALL_PREFIX}
             -DCMAKE_CXX_FLAGS:STRING=${LIBCCD_CXX_FLAGS}
@@ -19,10 +24,11 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clan
   )
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   ExternalProject_Add(libccd
-    GIT_REPOSITORY    https://github.com/danfis/libccd.git
-    GIT_TAG           master
-    SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/libccd-src
-    BINARY_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/libccd-build
+    GIT_REPOSITORY        https://github.com/danfis/libccd.git
+    GIT_TAG               master
+    SOURCE_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/libccd-src
+    BINARY_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/libccd-build
+    UPDATE_DISCONNECTED   ${UPDATE_DISCONNECTED}
     CMAKE_CACHE_ARGS
             -DCMAKE_INSTALL_PREFIX:STRING=${CMAKE_INSTALL_PREFIX}
             -DCMAKE_BUILD_TYPE:STRING=Release

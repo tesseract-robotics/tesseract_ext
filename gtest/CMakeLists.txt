@@ -5,15 +5,20 @@ if ( NOT GTest_FOUND )
 
   include(ExternalProject)
 
+  if (NOT UPDATE_DISCONNECTED)
+    set(UPDATE_DISCONNECTED ON)
+  endif()
+
   if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     set(GTEST_CXX_FLAGS "-w -std=c++14")
     set(GTEST_C_FLAGS "-w")
 
     ExternalProject_Add(GTest
-      GIT_REPOSITORY    https://github.com/google/googletest.git
-      GIT_TAG           release-1.8.1
-      SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/googletest-src
-      BINARY_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/googletest-build
+      GIT_REPOSITORY        https://github.com/google/googletest.git
+      GIT_TAG               release-1.8.1
+      SOURCE_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/googletest-src
+      BINARY_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/googletest-build
+      UPDATE_DISCONNECTED   ${UPDATE_DISCONNECTED}
       CMAKE_CACHE_ARGS
               -DCMAKE_INSTALL_PREFIX:STRING=${CMAKE_INSTALL_PREFIX}
               -DCMAKE_BUILD_TYPE:STRING=Release
@@ -25,10 +30,11 @@ if ( NOT GTest_FOUND )
     )
   elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     ExternalProject_Add(GTest
-      GIT_REPOSITORY    https://github.com/google/googletest.git
-      GIT_TAG           release-1.8.1
-      SOURCE_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/googletest-src
-      BINARY_DIR        ${CMAKE_BINARY_DIR}/../tesseract_ext/googletest-build
+      GIT_REPOSITORY        https://github.com/google/googletest.git
+      GIT_TAG               release-1.8.1
+      SOURCE_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/googletest-src
+      BINARY_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/googletest-build
+      UPDATE_DISCONNECTED   ${UPDATE_DISCONNECTED}
       CMAKE_CACHE_ARGS
               -DCMAKE_INSTALL_PREFIX:STRING=${CMAKE_INSTALL_PREFIX}
               -DCMAKE_BUILD_TYPE:STRING=Release
