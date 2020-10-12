@@ -28,6 +28,11 @@ if ( NOT GTest_FOUND )
               -DBUILD_GTEST:BOOL=ON
               -DBUILD_SHARED_LIBS:BOOL=ON
     )
+    file(MAKE_DIRECTORY ${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}/include)
+    set(GTEST_INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}/include)
+    set(GTEST_LIBRARIES ${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}/lib/libgtest.so)
+    set(GTEST_MAIN_LIBRARIES ${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}/lib/libgtest_main.so)
+
   elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     ExternalProject_Add(GTest
       GIT_REPOSITORY        https://github.com/google/googletest.git
@@ -42,6 +47,10 @@ if ( NOT GTest_FOUND )
               -DBUILD_GTEST:BOOL=ON
               -DBUILD_SHARED_LIBS:BOOL=ON
     )
+    file(MAKE_DIRECTORY ${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}/include)
+    set(GTEST_INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}/include)
+    set(GTEST_LIBRARIES ${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}/bin/libgtest.dll)
+    set(GTEST_MAIN_LIBRARIES ${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}/bin/libgtest_main.dll)
   endif()
 
   install(FILES package.xml DESTINATION share/gtest)
@@ -49,4 +58,19 @@ else()
   install(FILES package.xml DESTINATION share/dummy RENAME gtest.xml)
 endif()
 
+if(NOT TARGET GTest::GTest)
+  find_package(Threads QUIET)
 
+  add_library(GTest::GTest INTERFACE IMPORTED)
+  set_target_properties(GTest::GTest PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${GTEST_INCLUDE_DIRS}")
+  if(TARGET Threads::Threads)
+      set_target_properties(GTest::GTest PROPERTIES INTERFACE_LINK_LIBRARIES "${GTEST_LIBRARIES};Threads::Threads")
+  else()
+    set_target_properties(GTest::GTest PROPERTIES INTERFACE_LINK_LIBRARIES "${GTEST_LIBRARIES}")
+  endif()
+endif()
+
+if(NOT TARGET GTest::Main)
+  add_library(GTest::Main INTERFACE IMPORTED)
+  set_target_properties(GTest::Main PROPERTIES INTERFACE_LINK_LIBRARIES "${GTEST_MAIN_LIBRARIES};GTest::GTest")
+endif()
