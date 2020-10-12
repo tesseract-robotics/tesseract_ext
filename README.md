@@ -1,5 +1,13 @@
 # tesseract_ext
-[![Build Status](https://travis-ci.com/ros-industrial-consortium/tesseract_ext.svg?branch=master)](https://travis-ci.com/ros-industrial-consortium/tesseract_ext)
+
+Platform             | CI Status
+---------------------|:---------
+Linux (Focal)        | [![Build Status](https://github.com/ros-industrial-consortium/tesseract_ext_ext/workflows/Focal-Build/badge.svg)](https://github.com/ros-industrial-consortium/tesseract_ext/actions)
+Linux (Bionic)       | [![Build Status](https://github.com/ros-industrial-consortium/tesseract_ext/workflows/Bionic-Build/badge.svg)](https://github.com/ros-industrial-consortium/tesseract_ext/actions)
+Linux (Bionic,Clang) | [![Build Status](https://github.com/ros-industrial-consortium/tesseract_ext/workflows/Bionic-Build/badge.svg)](https://github.com/ros-industrial-consortium/tesseract_ext/actions)
+Linux (Xenial)       | [![Build Status](https://github.com/ros-industrial-consortium/tesseract_ext/workflows/Xenial-Build/badge.svg)](https://github.com/ros-industrial-consortium/tesseract_ext/actions)
+Windows              | [![Build Status](https://github.com/ros-industrial-consortium/tesseract_ext/workflows/Windows-Build/badge.svg)](https://github.com/ros-industrial-consortium/tesseract_ext/actions)
+
 
 This contains external dependencies for Tesseract.
 
