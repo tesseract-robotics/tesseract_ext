@@ -24,6 +24,7 @@ if (NOT ompl OR INSTALL_OMPL)
             -DCMAKE_INSTALL_PREFIX:STRING=${CMAKE_INSTALL_PREFIX}
             -DCMAKE_BUILD_TYPE:STRING=Release
             -D_USE_MATH_DEFINES:BOOL=ON
+            -DOMPL_BUILD_DEMOS:BOOL=OFF
   )
 
   install(FILES package.xml DESTINATION share/ompl)
