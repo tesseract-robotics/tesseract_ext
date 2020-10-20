@@ -17,7 +17,7 @@ jobs:
       ROS_DISTRO: melodic
       ROS_REPO: main
       NOT_TEST_INSTALL: true
-      ADDITIONAL_DEBS: "autotools-dev automake libpcre3-dev bison clang git"
+      ADDITIONAL_DEBS: "autotools-dev automake libpcre3-dev bison clang git libglu1-mesa-dev freeglut3-dev mesa-common-dev"
     steps:
       - uses: actions/checkout@v1
 
