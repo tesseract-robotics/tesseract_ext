@@ -25,6 +25,7 @@ if (NOT ompl_FOUND OR INSTALL_OMPL)
             -DCMAKE_BUILD_TYPE:STRING=Release
             -D_USE_MATH_DEFINES:BOOL=ON
             -DOMPL_BUILD_DEMOS:BOOL=OFF
+            -DOMPL_BUILD_TESTS:BOOL=OFF
   )
 
   install(FILES package.xml DESTINATION share/ompl)

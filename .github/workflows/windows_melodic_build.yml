@@ -31,4 +31,4 @@ jobs:
         choco install openblas -y --no-progress
         choco install orocos_kdl -y --no-progress
 
-        catkin_make_isolated --install
+        catkin_make_isolated --install --cmake-args -DINSTALL_OMPL=ON -DINSTALL_OMPL_TAG=master
