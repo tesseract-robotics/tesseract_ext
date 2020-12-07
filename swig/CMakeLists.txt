@@ -4,7 +4,7 @@ include(ExternalProject)
 
 find_package(SWIG QUIET)
 message("Swig version found: " ${SWIG_VERSION})
-if(NOT SWIG_FOUND OR SWIG_VERSION VERSION_LESS "4.0.0")
+if(NOT SWIG_FOUND OR SWIG_VERSION VERSION_LESS "4.0.2")
 
   if (NOT UPDATE_DISCONNECTED)
     set(UPDATE_DISCONNECTED ON)
@@ -15,7 +15,7 @@ if(NOT SWIG_FOUND OR SWIG_VERSION VERSION_LESS "4.0.0")
 
     ExternalProject_Add(swig
       GIT_REPOSITORY        https://github.com/swig/swig.git
-      GIT_TAG               rel-4.0.1
+      GIT_TAG               rel-4.0.2
       SOURCE_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/swig-src
       BUILD_IN_SOURCE       true
       CONFIGURE_COMMAND     bash autogen.sh
