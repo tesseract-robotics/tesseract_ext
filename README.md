@@ -15,7 +15,6 @@ Building this repo for the first time will require internet (to pull the necessa
 ## Required Dependencies
 * Bullet3
 * FCL
-* GTest
 * libcdd
 * SWIG
 * Taskflow
