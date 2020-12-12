@@ -26,6 +26,7 @@ if (NOT ompl_FOUND OR INSTALL_OMPL)
             -D_USE_MATH_DEFINES:BOOL=ON
             -DOMPL_BUILD_DEMOS:BOOL=OFF
             -DOMPL_BUILD_TESTS:BOOL=OFF
+            -DOMPL_REGISTRATION:BOOL=OFF
   )
 
   install(FILES package.xml DESTINATION share/ompl)
