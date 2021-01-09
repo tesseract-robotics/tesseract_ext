@@ -11,11 +11,10 @@ if(NOT SWIG_FOUND OR SWIG_VERSION VERSION_LESS "4.0.2")
   endif()
 
   if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    set(FCL_C_FLAGS "-w")
 
     ExternalProject_Add(swig
       GIT_REPOSITORY        https://github.com/swig/swig.git
-      GIT_TAG               rel-4.0.2
+      GIT_TAG               v4.0.2
       SOURCE_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/swig-src
       BUILD_IN_SOURCE       true
       CONFIGURE_COMMAND     bash autogen.sh
