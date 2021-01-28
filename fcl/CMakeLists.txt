@@ -6,7 +6,10 @@ if (NOT UPDATE_DISCONNECTED)
   set(UPDATE_DISCONNECTED ON)
 endif()
 
-find_package(fcl 0.6 QUIET)
+if (NOT INSTALL_FCL)
+  find_package(fcl 0.6 QUIET)
+endif()
+
 if (NOT fcl_FOUND OR INSTALL_FCL)
   if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     set(FCL_CXX_FLAGS "-w -std=c++14")
