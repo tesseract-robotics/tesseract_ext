@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(ompl)
 
-find_package(ompl QUIET)
+if (NOT INSTALL_OMPL)
+  find_package(ompl QUIET)
+endif()
+
 if (NOT ompl_FOUND OR INSTALL_OMPL)
 
   if (NOT UPDATE_DISCONNECTED)

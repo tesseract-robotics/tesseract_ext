@@ -6,7 +6,10 @@ if (NOT UPDATE_DISCONNECTED)
   set(UPDATE_DISCONNECTED ON)
 endif()
 
-find_package(Bullet QUIET CONFIGS BulletConfig-float64.cmake BulletConfig.cmake)
+if (NOT INSTALL_BULLET)
+  find_package(Bullet QUIET CONFIGS BulletConfig-float64.cmake BulletConfig.cmake)
+endif()
+
 if(NOT Bullet_FOUND OR NOT ${BULLET_DEFINITIONS} MATCHES ".*-DBT_USE_DOUBLE_PRECISION.*" OR Bullet_VERSION VERSION_LESS "2.89" OR INSTALL_BULLET)
   if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     set(BULLET_CXX_FLAGS "-w -std=c++14")

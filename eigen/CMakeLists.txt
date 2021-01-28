@@ -5,7 +5,10 @@ if (NOT UPDATE_DISCONNECTED)
   set(UPDATE_DISCONNECTED ON)
 endif()
 
-find_package(Eigen3 QUIET)
+if (NOT INSTALL_EIGEN)
+  find_package(Eigen3 QUIET)
+endif()
+
 if (NOT Eigen3_FOUND OR INSTALL_EIGEN)
   if (NOT INSTALL_EIGEN_TAG)
     set(INSTALL_EIGEN_TAG master)

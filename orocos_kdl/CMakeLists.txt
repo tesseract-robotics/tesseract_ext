@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(orocos_kdl)
 
-find_package(orocos_kdl QUIET)
+if (NOT INSTALL_OROCOS_KDL)
+  find_package(orocos_kdl QUIET)
+endif()
+
 if (NOT orocos_kdl_FOUND OR INSTALL_OROCOS_KDL)
 
   if (NOT UPDATE_DISCONNECTED)

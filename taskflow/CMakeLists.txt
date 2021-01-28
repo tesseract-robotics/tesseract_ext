@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(taskflow)
 
-find_package(Taskflow QUIET)
+if (NOT INSTALL_TASKFLOW)
+  find_package(Taskflow QUIET)
+endif()
+
 if (NOT Taskflow_FOUND OR INSTALL_TASKFLOW)
     # Taskflow requires 3.9
     if(${CMAKE_VERSION} VERSION_GREATER "3.8.99")
