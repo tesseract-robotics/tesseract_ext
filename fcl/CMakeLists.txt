@@ -17,7 +17,7 @@ if (NOT fcl_FOUND OR INSTALL_FCL)
 
     ExternalProject_Add(fcl
       GIT_REPOSITORY        https://github.com/flexible-collision-library/fcl.git
-      GIT_TAG               master
+      GIT_TAG               0.6.1
       SOURCE_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/fcl-src
       BINARY_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/fcl-build
       UPDATE_DISCONNECTED   ${UPDATE_DISCONNECTED}
@@ -32,7 +32,7 @@ if (NOT fcl_FOUND OR INSTALL_FCL)
   elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     ExternalProject_Add(fcl
       GIT_REPOSITORY        https://github.com/flexible-collision-library/fcl.git
-      GIT_TAG               master
+      GIT_TAG               0.6.1
       SOURCE_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/fcl-src
       BINARY_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/fcl-build
       UPDATE_DISCONNECTED   ${UPDATE_DISCONNECTED}
