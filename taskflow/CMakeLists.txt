@@ -15,7 +15,7 @@ if (NOT Taskflow_FOUND OR INSTALL_TASKFLOW)
 
         # Taskflow tag can be overwritten using INSTALL_TASKFLOW_TAG
         if (NOT INSTALL_TASKFLOW_TAG)
-            set(INSTALL_TASKFLOW_TAG v2.6.0)
+            set(INSTALL_TASKFLOW_TAG v3.0.0)
         endif()
 
         include(ExternalProject)
