@@ -15,13 +15,13 @@ if (NOT Taskflow_FOUND OR INSTALL_TASKFLOW)
 
         # Taskflow tag can be overwritten using INSTALL_TASKFLOW_TAG
         if (NOT INSTALL_TASKFLOW_TAG)
-            set(INSTALL_TASKFLOW_TAG v3.0.0)
+            set(INSTALL_TASKFLOW_TAG test/TaskflowVersion3CMake310)
         endif()
 
         include(ExternalProject)
 
         ExternalProject_Add(Taskflow
-            GIT_REPOSITORY        https://github.com/taskflow/taskflow.git
+            GIT_REPOSITORY        https://github.com/Levi-Armstrong/cpp-taskflow.git
             GIT_TAG               ${INSTALL_TASKFLOW_TAG}
             SOURCE_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/Taskflow-src
             BINARY_DIR            ${CMAKE_BINARY_DIR}/../tesseract_ext/Taskflow-build
